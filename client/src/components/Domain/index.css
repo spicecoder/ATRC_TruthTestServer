@@ -1,0 +1,95 @@
+.heading {
+  margin: auto;
+  margin-top: 70px;
+  display: flex;
+  width: 450px;
+  /* margin: 10px auto 0; */
+  padding: 10px;
+  box-sizing: border-box;
+  background: seagreen;
+  color: #fff;
+  justify-content: space-around;
+}
+.heading h1 {
+  font-size: 20px;
+}
+.add-button {
+  font-size: 20px;
+  padding-top: 5px;
+}
+.main-class {
+  display: flex;
+  width: 450px;
+  margin: 10px auto 0;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #000080;
+  color: #fff;
+}
+
+.main-class:nth-child(odd) {
+  background: #808000;
+}
+
+.name {
+  width: 290px;
+  overflow-wrap: break-word;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+.change {
+  width: 50px;
+  height: 25px;
+  cursor: pointer;
+  background: #ff00ff;
+}
+.delete {
+  width: 50px;
+  height: 25px;
+  cursor: pointer;
+  background: #c54242;
+}
+.r-pattern {
+  width: 50px;
+  height: 25px;
+  cursor: pointer;
+  background: #fff;
+  color: #db1717;
+}
+.button-select {
+  position: relative;
+  background-color: #000000;
+  border: none;
+  font-size: 20px;
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.button-add-canc {
+  position: relative;
+  background-color: #04aa6d;
+  border: none;
+  font-size: 20px;
+  color: #ffffff;
+  width: auto;
+  height: auto;
+  text-align: center;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+#fname {
+  width: 450px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}

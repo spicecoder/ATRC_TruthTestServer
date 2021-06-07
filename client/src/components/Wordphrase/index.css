@@ -1,0 +1,39 @@
+.select-wrapper-2 {
+  width: 450px;
+  margin: auto;
+  /* border-radius: 3%; */
+}
+.button-wrapper-2 {
+  height: 38px;
+}
+.creatable-2 {
+  width: 240px;
+  margin-bottom: 40px;
+  margin-left: 10px;
+}
+.border-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  height: auto;
+  width: auto;
+  color: #03090e;
+  font-size: 1em;
+  border: 2px solid #3498db;
+}
+.trnsparent-button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  height: auto;
+  width: auto;
+  color: #03090e;
+  font-size: 1em;
+  border-bottom: 1px solid #3498db;
+}
+
+/* @media screen and (max-width: 480px) {
+  .select-wrapper-2 {
+    width: 330px;
+  }
+} */
