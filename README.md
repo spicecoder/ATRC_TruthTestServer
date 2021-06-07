@@ -1,7 +1,7 @@
 # TruthServer
 Truth Server: A Microservice test facility
  Every piece of software has a purpose.
-A software piece is executed to verify a resolution pattern e.g “A user logged in successfully” is a resolution pattern that does not care about which user. Similarly “A user login is unsuccessful” is another resolution pattern.  A micro service has one or more resolution patterns. A resolution pattern can have a sequence of assertions that the developer knows upfront. e.g.  a resolution pattern “a user has logged in” can have the following assertion sequence :
+A software piece is executed to verify a resolution pattern e.g “A user logged in successfully” is a resolution pattern that does not care about which user. Similarly “A user login is unsuccessful” is another resolution pattern.  A micro service has one or more resolution patterns. A resolution pattern can have a sequence of assertions that the developer knows upfront. e.g.  a resolution pattern “a user has logged in successfully” can have the following assertion sequence :
 1.	User has entered the user id.
 2.	User has entered the password. 
 3.	The user id exists.
