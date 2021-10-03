@@ -3,21 +3,43 @@ const router = Express.Router();
 const Domain = require("../model/Domain");
 const WordPhrase = require("../model/Wordphrase");
 const DomainAnchor = require("../model/DomainAnchor");
+
 router.post("/post-domain-anchor", async (req, res) => {
+  const domainanchor = await DomainAnchor.find({});
+  var DA;
+  if (domainanchor.length === 0 || req.body.domainanchor === "Domain") {
+    var checkExistence = await DomainAnchor.findOne({
+      anchor: "microservices",
+    });
+
+    if (!checkExistence) {
+      const DomainAnchorObject = new DomainAnchor({
+        anchor: "microservices",
+      });
+
+      DA = await DomainAnchorObject.save();
+    } else {
+      DA = checkExistence;
+    }
+  } else {
+    DA = await getDAIds(req.body.domainanchor);
+  }
   const wp = await getIds(req.body.domain);
-  const da = await getDAIds(req.body.domainanchor);
+
   const Domains = new Domain({
-    domainanchor: da._id.toString(),
+    domainanchor: DA._id.toString(),
     domain: wp._id.toString(),
     owner: req.body.owner,
   });
+
   Domains.save()
     .then((response) => {
-      console.log(response);
       res.send({ data: response });
     })
-    .catch((err) => {
-      console.log(err);
+    .catch((error) => {
+      if (error.name === "MongoError" && error.code === 11000) {
+        res.send({ err: "duplicate resolution pattern" });
+      }
     });
 });
 

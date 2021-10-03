@@ -24,23 +24,31 @@ const Domain = () => {
   const [update, setUpdate] = useState(false);
   const [changeData, setChangedData] = useState();
   const [logedUser, setLogedUser] = useState(false);
+  const [DomainAnchor, setDomainAnchor] = useState({ anchor: "Domain" });
 
   useEffect(() => {
     getDomainAnchor().then((res) => {
-      sessionStorage.setItem("DomainAnchor", JSON.stringify(res.data[0]));
+      if (res.data.length > 0) {
+        setDomainAnchor(res.data[0]);
+        sessionStorage.setItem("DomainAnchor", JSON.stringify(res.data[0]));
+      }
     });
   }, []);
   useEffect(() => {
     getAllDomain().then((res) => {
-      setData(res.data);
+      if (res) {
+        setData(res.data);
+      }
     });
   }, [show, update]);
-  const DA = JSON.parse(sessionStorage.getItem("DomainAnchor"));
+  const DA = DomainAnchor;
+  var CA = sessionStorage.getItem("DomainAnchor");
+
   const display = () => {
     setShow(true);
   };
   const addDomain = () => {
-    if ((domainValue, DA.anchor)) {
+    if (domainValue) {
       const obj = {
         domain: domainValue.wp,
         domainanchor: DA.anchor,
@@ -82,7 +90,7 @@ const Domain = () => {
   return (
     <div>
       <div className="heading">
-        <h1>{DA !== null ? DA.anchor : "Domain"}</h1>
+        <h1>{DA !== null || DA !== undefined ? DA.anchor : "Domain"}</h1>
         <div className="add-button">
           {!show && userData.user !== undefined ? (
             <button className="button-select" onClick={() => display()}>
@@ -94,7 +102,7 @@ const Domain = () => {
       {show ? (
         <>
           <WordPhrase
-            heading={DA !== null ? DA.anchor : "Domain"}
+            heading={DA !== null && DA !== undefined ? DA.anchor : "Domain"}
             setDomainValue={setDomainValue}
           />
           <>

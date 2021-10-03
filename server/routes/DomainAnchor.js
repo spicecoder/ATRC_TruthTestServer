@@ -12,7 +12,9 @@ router.post("/post-domain-anchor", async (req, res) => {
       res.send({ data: response });
     })
     .catch((err) => {
-      console.log(err);
+      if (error.name === "MongoError" && error.code === 11000) {
+        res.send({ err: "duplicate resolution pattern" });
+      }
     });
 });
 

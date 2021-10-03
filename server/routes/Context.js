@@ -11,7 +11,6 @@ router.get("/post-resolution-pattern", async (req, res) => {
       { domain: word._id, flow: data.flow },
       async (err, docs) => {
         if (err) {
-          console.log(err);
         } else {
           if (docs === null) {
             const RP = new Context({

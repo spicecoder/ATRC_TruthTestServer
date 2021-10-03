@@ -6,4 +6,5 @@ const DomainAnchor = new Schema({
     required: true,
   },
 });
+DomainAnchor.index({ anchor: 1 }, { unique: true });
 module.exports = mongoose.model("DomainAnchor", DomainAnchor);

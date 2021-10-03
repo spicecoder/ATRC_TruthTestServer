@@ -8,10 +8,12 @@ const Domain = new Schema({
   domain: {
     type: String,
     required: true,
+    unique: true,
   },
   owner: {
     type: String,
     required: true,
   },
 });
+
 module.exports = mongoose.model("Domain", Domain);
